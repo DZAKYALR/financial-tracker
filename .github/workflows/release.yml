@@ -21,4 +21,4 @@ jobs:
       - name: Create GitHub release
         uses: softprops/action-gh-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.MAGICKEY }}
+          GITHUB_TOKEN: ${{ secrets.MAGICMAROON }}

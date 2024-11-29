@@ -1,0 +1,37 @@
+name: Generate Changelog
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # This triggers on new version tags
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+    #   - name: Install dependencies
+    #     run: |
+    #       npm install
+
+      - name: Generate Changelog
+        run: |
+          npx github-changelog-generator --token ${{ secrets.MAGICMAROON }} --unreleased --next-tag v0.0.1
+          
+      - name: Commit and push changelog update
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add CHANGELOG.md
+          git commit -m "chore: update changelog"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.MAGICMAROON }}
