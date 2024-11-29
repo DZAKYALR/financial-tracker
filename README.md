@@ -2,9 +2,14 @@
 
 ---
 
-# Financial Tracker Pro
+# Financial Tracker
 
 **A modern, serverless app for managing loans, tracking expenses, and organizing income—all in one place.**
+
+![Version](https://img.shields.io/github/v/release/DZAKYALR/financial-tracker)
+![License](https://img.shields.io/github/license/DZAKYALR/financial-tracker)
+![Stars](https://img.shields.io/github/stars/DZAKYALR/financial-tracker)
+![Contributors](https://img.shields.io/github/contributors/DZAKYALR/financial-tracker)
 
 ## Features
 - **Loan Management**: Keep track of your loans, including amounts, due dates, purposes, and percentages allocated to others.
@@ -12,16 +17,24 @@
 - **Income Management**: Record and manage all income sources for better financial insights.
 - **User-Specific Data**: Your data is securely stored locally on your machine or in the cloud using a unique user ID.
 
-## Tech Stack
-- **Frontend**: 
-  - [React](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/) for type safety.
-- **Backend**: 
-  - [Serverless Functions](https://vercel.com/docs/concepts/functions/serverless-functions) (e.g., Vercel, Netlify).
-- **Storage**:
-  - **Local**: [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) or [LocalForage](https://localforage.github.io/localForage/).
-  - **Cloud**: [Firebase Realtime Database](https://firebase.google.com/products/realtime-database) or [Supabase](https://supabase.com/).
-- **Styling**:
-  - [Tailwind CSS](https://tailwindcss.com/) for efficient and customizable UI design.
+### **Tech Stack**
+- **Frontend**:  
+  - [React](https://reactjs.org/) with [TypeScript](https://www.typescriptlang.org/).  
+
+- **Backend**:  
+  - [Cloudflare Workers](https://developers.cloudflare.com/workers/) for serverless function execution.  
+
+- **Storage**:  
+  - **Local**: [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) or [LocalForage](https://localforage.github.io/localForage/).  
+  - **Cloud**: [Firebase Realtime Database](https://firebase.google.com/products/realtime-database) for real-time data synchronization with a free tier.  
+
+- **Styling**:  
+  - [Tailwind CSS](https://tailwindcss.com/) for efficient and customizable UI design.  
+
+- **Hosting**:  
+  - [Cloudflare Pages](https://pages.cloudflare.com/) for fast, scalable, and reliable hosting of the app.  
+
+---
 
 ## Installation
 ### Prerequisites
@@ -31,56 +44,38 @@
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/financial-tracker-pro.git
+   git clone https://github.com/DZAKYALR/financial-tracker.git
    ```
 2. Install dependencies:
    ```bash
-   cd financial-tracker-pro
+   cd financial-tracker
    npm install
    ```
 3. Start the development server:
    ```bash
    npm start
    ```
-
-## Project Structure
-```
-financial-tracker-pro/
-│
-├── src/
-│   ├── components/       # Reusable UI components
-│   ├── hooks/            # Custom hooks for logic abstraction
-│   ├── pages/            # Page-level components
-│   ├── utils/            # Helper functions
-│   └── App.tsx           # Entry point
-│
-├── public/               # Static assets
-├── package.json          # Dependencies and scripts
-└── README.md             # Documentation
-```
+---
 
 ## Data Storage Strategy
 ### Serverless Storage Options
-1. **Local Storage**: 
-   - Use **IndexedDB** for offline-first capabilities.
-   - [LocalForage](https://localforage.github.io/localForage/) can simplify IndexedDB usage.
+1. **Local Storage**:  
+   - Use **IndexedDB** for offline-first capabilities to ensure the app works seamlessly without internet access.  
+   - Simplify IndexedDB usage with [LocalForage](https://localforage.github.io/localForage/).  
 
-2. **Cloud Storage**: 
-   - **Firebase Realtime Database** or **Firestore** for secure and scalable user-specific data.
-   - Use `userId` as the key to segregate data.
+2. **Cloud Storage**:  
+   - Use **Firebase Realtime Database** for secure, real-time synchronization of user-specific data.  
+   - Leverage `userId` as the key to segregate and organize data for each user.  
 
-3. **Hybrid Solution**:
-   - Sync local data with cloud storage periodically for the best of both worlds.
-
-## Contributing
-1. Fork the repository.
-2. Create a feature branch:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Commit changes and open a pull request.
-
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+3. **Hybrid Solution**:  
+   - Sync local data stored in IndexedDB with **Firebase Realtime Database** periodically.  
+   - This ensures offline-first capabilities while keeping cloud data updated for multi-device access.  
 
 ---
+
+## Contributing
+We welcome contributions! Please check out the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```

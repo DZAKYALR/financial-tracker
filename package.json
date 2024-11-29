@@ -1,0 +1,24 @@
+{
+  "name": "financial-tracker",
+  "version": "1.0.0",
+  "description": "A modern, serverless app for managing loans, expenses, and income.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "keywords": ["financial", "tracker", "loans", "expenses", "income"],
+  "author": "DZAKYALR",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.52.0",
+    "prettier": "^3.0.0"
+  }
+}
