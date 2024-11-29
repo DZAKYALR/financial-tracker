@@ -3,7 +3,7 @@ name: Generate Changelog
 on:
   push:
     tags:
-      - 'v*.*.*'  # This triggers on new version tags
+      - 'v*.*.*'  # Trigger on new version tags
 
 jobs:
   changelog:
@@ -18,14 +18,16 @@ jobs:
         with:
           node-version: '16'
 
-    #   - name: Install dependencies
-    #     run: |
-    #       npm install
+      - name: Install changelog generator
+        run: |
+          npm install -g conventional-changelog-cli
 
       - name: Generate Changelog
         run: |
-          npx github-changelog-generator --token ${{ secrets.MAGICMAROON }} --unreleased --next-tag v0.0.1
-          
+          conventional-changelog -p angular -i CHANGELOG.md -s --tag-prefix v
+        env:
+          GITHUB_TOKEN: ${{ secrets.MAGICMAROON }}
+
       - name: Commit and push changelog update
         run: |
           git config --global user.name "github-actions"
